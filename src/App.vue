@@ -1,5 +1,17 @@
 <script setup>
+import axios from "axios";
 import HelloWorld from "./components/HelloWorld.vue";
+
+const handleClick = () => {
+  console.log("发了，还没回");
+  axios
+    .post("https://2kgvgeaq4e.us.aircode.run/hello", {
+      hi: undefined,
+    })
+    .then((res) => {
+      console.log("回复了", res);
+    });
+};
 </script>
 
 <template>
@@ -12,6 +24,7 @@ import HelloWorld from "./components/HelloWorld.vue";
     </a>
   </div>
   <HelloWorld msg="快速搭建一个线上网站的前端" />
+  <button @click="handleClick">发个 hi</button>
 </template>
 
 <style scoped>
